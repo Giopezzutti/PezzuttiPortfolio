@@ -1,0 +1,14 @@
+project:
+  type: website
+  output-dir: ../../docs/projects/labels-forecasting
+
+website:
+  title: "Labels Forecasting Project"
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    toc: true
+    respect-user-color-scheme: true

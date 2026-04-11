@@ -1,0 +1,64 @@
+---
+title: "Labels Forecasting for Retail Operations"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    theme:
+      light: flatly
+      dark: darkly
+    respect-user-color-scheme: true
+    embed-resources: false
+---
+
+## Project overview
+
+This project introduces a first structured forecasting process for label demand in a retail supermarket operation.
+
+The goal was not to build a perfect forecast or treat model output as absolute truth. The forecast is used as a planning signal that supports downstream operational decisions such as blank label purchasing, label printing, and pre-applying labels to selected containers.
+
+This matters because the cost of error is not symmetric. Labels are relatively inexpensive, require little storage space, and can tolerate controlled overstock. Understock is much more disruptive. If labels are unavailable, products may not be sent to stores in sellable condition, which can create lost sales, operational scrambling, and overtime.
+
+One important note before starting: this public version uses synthetic data built from the structure of the original project. The real project was based on internal company data, so for privacy reasons the SKU ids, dates, and volumes shown here are not the real ones. The modeling problem and the workflow are still the same.
+
+## What this project does
+
+The notebook walks through the full analytical process:
+
+- reviewing the panel structure and operational signals
+- comparing store orders and store sales
+- engineering a target quantity for forecasting
+- creating SKU-level behavioral features
+- segmenting the catalog by demand pattern
+- validating forecasting methods by segment
+- translating forecast output into operational planning rules
+
+## Main decisions
+
+A few design choices define the project:
+
+- `Ordered` and `Sold` are both informative, but neither one is a complete measure of demand on its own
+- the target quantity is engineered using observed sell-through behavior rather than taken directly from a single raw field
+- the SKU catalog is segmented because steady and intermittent items do not behave the same way
+- steady movers are handled with ETS and a protective planning quantity based on the 90% upper prediction limit
+- intermittent items are handled with TSB as a demand signal and translated into a standing inventory rule instead of a detailed monthly forecast
+
+## Why this project matters
+
+The value of this project is not only in fitting forecasting models. The harder part was defining what demand meant in this process, separating different SKU behaviors, validating those choices, and turning the output into something operationally usable.
+
+This was the first forecasting layer for the process, so the focus was on building a framework that was practical, interpretable, and useful enough to support better decisions right away.
+
+## Links
+
+- [View the GitHub repository](https://github.com/Giopezzutti/Labels_Forecast_Project/tree/main)
+- [Open the Jupyter notebook](./labels_forecasting_portfolio.html)
+
+## Jupyter notebook
+
+<iframe
+  src="./labels_forecasting_portfolio.html"
+  width="100%"
+  height="1400"
+  style="border:1px solid #ddd; border-radius:8px;">
+</iframe>
