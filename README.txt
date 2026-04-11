@@ -4,26 +4,53 @@ Giovanni Pezzutti Professional Portfolio
 This repository contains my personal portfolio website, where I showcase projects, technical work, and professional experience in data analytics, business intelligence, forecasting, and process improvement.
 
 
-Repository Overview
--------------------
+Repository Structure
+--------------------
+
+```
+PezzuttiPortfolio/
+|-- index.html
+|-- README.txt
+|-- LICENSE.txt
+|-- assets/
+|   |-- css/
+|   |-- js/
+|   `-- sass/
+|-- docs/
+|   `-- projects/
+|       `-- labels-forecasting/
+|           |-- index.html
+|           |-- labels_forecasting_portfolio.html
+|           |-- labels_forecasting_portfolio_files/
+|           |-- search.json
+|           `-- site_libs/
+|-- images/
+`-- project/
+    |-- analytical_report.html
+    `-- labels-forecasting/
+        |-- _quarto.yml
+        |-- index.qmd
+        `-- labels_forecasting_portfolio.ipynb
+```
 
 - `index.html`
   Main landing page and portfolio site entry point.
 
-- `project/analytical_report.html`
-  Standalone project page for the coffee shop inventory management analysis.
+- `assets/`
+  CSS, JavaScript, and Sass files used for the main portfolio experience.
+
+- `docs/projects/labels-forecasting/`
+  Published Quarto project output used for the hosted forecasting case study.
 
 - `images/`
   Portfolio, resume, background, and profile images used by the site.
 
-- `assets/css/`
-  Compiled stylesheets for the HTML5 UP template and site presentation.
+- `project/analytical_report.html`
+  Standalone HTML project page for the coffee shop inventory management analysis.
 
-- `assets/js/`
-  Frontend behavior for the single-page modal navigation experience.
-
-- `assets/sass/`
-  Original Sass source files from the template.
+- `project/labels-forecasting/`
+  Quarto source files for the labels forecasting project, including configuration,
+  notebook content, and the generated project entry page.
 
 
 Current Site Content
